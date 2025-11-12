@@ -245,8 +245,8 @@ def convert_model_tags(text):
     pattern2 = r'<Model[^>]*/?>'
     text = re.sub(pattern2, '', text)
 
-    # Clean up any double spaces that result
-    text = re.sub(r'\s{2,}', ' ', text)
+    # Clean up any double spaces that result (but preserve newlines)
+    text = re.sub(r'[ \t]{2,}', ' ', text)
 
     # Clean up space before punctuation
     text = re.sub(r'\s+([.,;:!?])', r'\1', text)
@@ -400,8 +400,6 @@ def convert_json_to_qmd(json_file_path, bib_file_path=None, csl_file_path=None):
             clean_text = convert_model_tags(text)
             # Then convert inline citations to Quarto format
             clean_text = convert_inline_citations(clean_text, citation_mapping)
-            # Ensure paragraph breaks are preserved (convert literal \n to actual newlines)
-            clean_text = clean_text.replace('\\n', '\n')
             md_content += f"{clean_text}\n\n"
 
     # Add references summary table
