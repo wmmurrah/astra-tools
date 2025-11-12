@@ -12,24 +12,27 @@ This package provides command-line tools to convert research artifacts exported 
 
 ## Installation
 
-### For Development (Recommended for Personal Use)
+### From GitHub (Recommended)
 
-Install the package in editable mode from this subdirectory:
-
-```bash
-# From the GenerativeCausalInference directory
-pip install -e ./astra-tools
-```
-
-This makes the `astra-convert` command available across all your projects while allowing you to modify the source code.
-
-### For Use in Other Projects
-
-You can also install directly from the path:
+Install directly from the GitHub repository:
 
 ```bash
-pip install -e /path/to/GenerativeCausalInference/astra-tools
+pip install git+https://github.com/wmmurrah/astra-tools.git
 ```
+
+This installs the latest version and makes the `astra-convert` command available across all your projects.
+
+### For Development
+
+Clone the repository and install in editable mode:
+
+```bash
+git clone https://github.com/wmmurrah/astra-tools.git
+cd astra-tools
+pip install -e .
+```
+
+This allows you to modify the source code and see changes immediately without reinstalling.
 
 ### Verifying Installation
 
